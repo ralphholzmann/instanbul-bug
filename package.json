@@ -1,0 +1,29 @@
+{
+  "name": "istanbul-bug",
+  "version": "1.0.0",
+  "description": "Sub process istanbul bug",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require @babel/register",
+    "test:coverage": "NODE_ENV=test nyc -a npm test",
+    "test:coverage2": "NODE_ENV=test nyc -a mocha --require @babel/register"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "@babel/register": "^7.0.0-beta.49",
+    "babel-plugin-istanbul": "^4.1.6",
+    "mocha": "^5.2.0",
+    "nyc": "^11.8.0"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false,
+    "include": [
+      "src/tested-file.js",
+      "src/untested-file.js"
+    ]
+  }
+}
